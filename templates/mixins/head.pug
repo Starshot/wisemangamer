@@ -1,0 +1,16 @@
+//- HTML HEADER
+head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+    title= title || 'Wisemangamer'
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+    //- Customise the stylesheet for your site by editing /public/styles/site.sass
+    link(href="/styles/css/shared.css", rel="stylesheet")
+    script(defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    //- This file provides the default styling for the KeystoneJS Content Editor
+    if user && user.canAccessKeystone
+        link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+

@@ -1,0 +1,11 @@
+.container.backgroundcolor
+    #blogpost.container
+        img.blogpicture(src=post._.image.src({width: 940, height: 626, crop: "fill"}))
+    .container-text
+        h1.Bigheader #{post.title}
+        h4.Dateheader  #{post._.publishedDate.format('MMMM DD, YYYY')}
+        h4.Smallheader #{post.subTitle}
+        p.text-align-left !{post.content.extended}
+        a.btnstyle(href = '/blog') Back to Blog
+
+

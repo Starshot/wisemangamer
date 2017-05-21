@@ -1,0 +1,11 @@
+//- HEADER
+#header
+    .container
+        ul
+            each link in navLinks
+                if link.key == 'services'
+
+                else
+                    li.nav(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+
+
