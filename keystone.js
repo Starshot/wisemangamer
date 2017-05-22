@@ -9,6 +9,10 @@ var keystone = require('keystone');
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
+process.env.CLOUDINARY_URL = process.env.CLOUDINARY_URL || 'cloudinary://431195557586964:AqZvK1egKeayDruNd6uME4YWKQw@hc7gvvqtz'
+
+process.env.COOKIE_SECRET = process.env.COOKIE_SECRET || '4a2f33310b983472078fb8297333d49292413104c508fa43a55bb3b2be6f7cffdf5ff15babcca056bfd142d97e3a4cd7f28e11cc999067b37e881da80c037e40';
+
 keystone.init({
 	'name': 'Wisemangamer',
 	'brand': 'Wisemangamer',
