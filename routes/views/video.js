@@ -6,7 +6,7 @@ exports = module.exports = function (req, res) {
     var locals = res.locals;
 
     // Set locals
-    locals.section = 'video';
+    locals.section = 'videocollection';
     locals.filters = {
         video: req.params.video,
     };
@@ -14,7 +14,32 @@ exports = module.exports = function (req, res) {
         videos: [],
     };
 
+    // Load the current post
+    view.on('init', function (next) {
 
+        var v = keystone.list('Video').model.findOne({
+            state: 'published',
+            slug: locals.filters.video,
+        }).populate('author categories');
+
+        v.exec(function (err, result) {
+            locals.data.video = result;
+            next(err);
+        });
+
+    });
+
+    // Load other posts
+    view.on('init', function (next) {
+
+        var v = keystone.list('Video').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
+
+        v.exec(function (err, results) {
+            locals.data.videos = results;
+            next(err);
+        });
+
+    });
 
     // Render the view
     view.render('video');

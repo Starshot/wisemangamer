@@ -1,6 +1,7 @@
 var keystone = require('keystone');
 var Post = keystone.list('Post');
 var Index = keystone.list('Index');
+var Video = keystone.list('Video');
 
 
 exports = module.exports = function (req, res) {
@@ -36,6 +37,34 @@ exports = module.exports = function (req, res) {
 						.limit(5)
 						.exec(function(err, results) {
 							locals.posts = results;
+							next();
+						});
+				}
+			});
+	});
+	view.on('init', function (next) {
+		Index.model.findOne()
+			.exec(function(err, results) {
+				locals.data = results;
+				if(locals.section == '/videocollection') {
+					Video.paginate({
+						page: req.query.page || 1,
+						perPage: 10,
+						maxPages: 10
+					})
+						.where('state', 'published')
+						.sort('-publishedDate')
+						.exec(function(err, results) {
+							locals.videos = results;
+							next(err);
+						});
+				} else {
+					Video.model.find()
+						.where('state', 'published')
+						.sort('-publishedDate')
+						.limit(5)
+						.exec(function(err, results) {
+							locals.videos = results;
 							next();
 						});
 				}

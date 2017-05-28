@@ -3,10 +3,21 @@ doctype html
 html(lang='en')
 	include ../mixins/head
 	include ../mixins/header
+
 	if(section == '/')
 		include ../layouts/post
+		include ../layouts/videocollection
+
 	if(section == '/blog')
 		include ../layouts/post
+
+	if(section == '/video')
+		include ../layouts/videocollection
+
+	if(section == '/videocollection')
+		include ../layouts/video
+
 	if(section == '/blogpost')
 		include ../layouts/blog
+
 	include ../mixins/footer

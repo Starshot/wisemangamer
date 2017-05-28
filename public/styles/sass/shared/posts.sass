@@ -1,0 +1,55 @@
+@import variables
+.blogContainer
+  background-color: $Maincolor
+  color: black
+  .container-title
+    text-align: center
+    padding-top: 30px
+    .sub-title
+      color: black
+      font-size: 18px
+      line-height: 32px
+      font-weight: 300
+      margin-top: 0
+    .news-title
+      font-size: 35px
+      color: black
+      margin-top: 0px
+      margin-bottom: 10px
+      font-size: 35px
+      line-height: 44px
+      font-weight: 500
+  .container-posts
+    text-align: center
+    width: 100%
+    padding-bottom: 45px
+    .container-img
+      margin: 10px
+      display: inline-block
+      text-align: center
+      position: relative
+      .topText
+        position: absolute
+        top: 30px
+        left: 20px
+        text-align: left
+        .post-title
+          font-size: 24px
+          color: $Maincolor
+          font-weight: 600
+          margin-bottom: 20px
+        .post-date
+          color: #ffffff
+      .link-post
+        position: absolute
+        width: 100%
+        bottom: 0
+        height: 30px
+        padding-top: 13px
+        display: block
+        background-color: $secondcolor
+        transition: all .5s
+        color: $thirdcolor
+        &:hover
+          transition: all .5s
+          background-color: lighten($secondcolor, 5)
