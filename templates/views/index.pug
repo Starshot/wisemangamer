@@ -6,16 +6,14 @@ html(lang='en')
 
 	if(section == '/')
 		include ../layouts/post
-		include ../layouts/videocollection
+		include ../layouts/vlog
 
 	if(section == '/blog')
 		include ../layouts/post
 
-	if(section == '/video')
-		include ../layouts/videocollection
 
-	if(section == '/videocollection')
-		include ../layouts/video
+	if(section == '/vlog/video')
+		include ../layouts/vlog
 
 	if(section == '/blogpost')
 		include ../layouts/blog

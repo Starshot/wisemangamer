@@ -1,0 +1,20 @@
+.blogContainer
+    .container-title
+        h1.news-title Latest Gaming Videos
+    .container-posts
+        if(section == '/vlog/video')
+            .container-img
+                a(href='/videocollection/' + video._id )
+                    img.blog-img(src=video._.image.src({width: 460, height: 306, crop: "fill"}), alt="Video")
+                    .topText
+                        .video-title #{video.title}
+                        .video-date #{video._.publishedDate.format('MMMM DD, YYYY')}
+                    a.link-post(href='/videocollection/' + video._id ) Read More
+        else
+            each video in videos
+                .container-img
+                    img.blog-img(src=video._.image.src({width: 460, height: 306, crop: "fill"}), alt="Video")
+                    .topText
+                        .video-title #{video.title}
+                        .video-date #{video._.publishedDate.format('MMMM DD, YYYY')}
+                    a.link-post(href='/videocollection/' + video._id ) Read More
