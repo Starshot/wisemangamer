@@ -22,3 +22,29 @@
 
 
 
+		ul.pagination
+
+			// displays number of posts in database
+			if posts.totalPages > 1
+				.lead.text-muted Showing
+					strong #{posts.first}
+					|  to
+					strong #{posts.last}
+					|  of
+					strong #{posts.total}
+					|  posts
+
+				// display icons arrows for prevous  page and next page
+			if posts.totalPages > 1
+				ul.pagination
+					if posts.previous
+						li: a(href='?page=' + posts.previous): span.glyphicon.glyphicon-chevron-left
+					else
+						li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+
+						// creates pages equal to the number of posts
+					each p, i in posts.pages
+						li(class=posts.currentPage === p ? 'active' : null)
+							a(href='?page=' + (p === '...' ? (i ? posts.totalPages : 1) : p ))= p
+					if posts.next
+						li: a(href='?page=' + posts.next): span.glyphicon.glyphicon-chevron-right
