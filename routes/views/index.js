@@ -8,7 +8,6 @@ exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-	req.params "page 2"
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
 	locals.section = req.url;
