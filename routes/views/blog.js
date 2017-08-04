@@ -16,6 +16,7 @@ exports = module.exports = function (req, res) {
 					var p = keystone.list('Post').model.findById(req.params.post);
 					p.exec(function(err, result){
 						locals.post = result;
+						console.log(result);
 						next(err);
 					});
 			});

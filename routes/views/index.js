@@ -27,33 +27,21 @@ exports = module.exports = function (req, res) {
 			});
 		next();
 	});
+
+	// code for displaying video posts
 	view.on('init', function (next) {
-		Video.model.findOne()
+		Video.paginate({
+			page: req.query.page || 1,
+			perPage: 10,
+			maxPages: 10
+		})
+			.where('state', 'published')
+			.sort('-publishedDate')
 			.exec(function(err, results) {
-				locals.data = results;
-				if(locals.section == '/vlog') {
-					Video.paginate({
-						page: req.query.page || 1,
-						perPage: 10,
-						maxPages: 10
-					})
-						.where('state', 'published')
-						.sort('-publishedDate')
-						.exec(function(err, results) {
-							locals.videos = results;
-							next(err);
-						});
-				} else {
-					Video.model.find()
-						.where('state', 'published')
-						.sort('-publishedDate')
-						.limit(5)
-						.exec(function(err, results) {
-							locals.videos = results;
-							next();
-						});
-				}
+				locals.videos = results;
+				next(err);
 			});
+		
 	});
 	view.render('index');
 };

@@ -2,14 +2,15 @@
 	.container-title
 		h1.news-title Latest Gaming Posts
 	.container-posts
-		each post in posts.results
-			.container-img
-				a(href='/blog/' + post._id )
-					img.blog-img(src=post._.image.src({ width: 460, height: 306, crop: "fill", transformation: [{effect: "gradient_fade,y_0.7,b_rgb:D4AF37"}]}), alt="Post")
-					.topText
-						.post-title #{post.title}
-						.post-date #{post._.publishedDate.format('MMMM DD, YYYY')}
-					a.link-post(href='/blog/' + post._id ) Read More
+		if(section == '/blog')
+			each post in posts.results
+				.container-img
+					a(href='/blog/' + post._id )
+						img.blog-img(src=post._.image.src({ width: 460, height: 306, crop: "fill", transformation: [{effect: "gradient_fade,y_0.7,b_rgb:D4AF37"}]}), alt="Post")
+						.topText
+							.post-title #{post.title}
+							.post-date #{post._.publishedDate.format('MMMM DD, YYYY')}
+						a.link-post(href='/blog/' + post._id ) Read More
 
 
 
