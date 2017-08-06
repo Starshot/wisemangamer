@@ -10,7 +10,7 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = '/blog';
+	locals.section = '/';
 	locals.validationErrors = {};
 	// Load the current post
 	view.on('init', function (next) {
@@ -41,7 +41,7 @@ exports = module.exports = function (req, res) {
 				locals.videos = results;
 				next(err);
 			});
-		
+
 	});
 	view.render('index');
 };
