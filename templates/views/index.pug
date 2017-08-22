@@ -10,12 +10,16 @@ html(lang='en')
 
 	if(section == '/blog')
 		include ../layouts/post
+
+	if(section == '/blogpost')
 		include ../layouts/blog
 
-
-
-	if(section == '/vlog/')
+	if(section == '/vlog')
 		include ../layouts/vlog
+
+	if(section == '/videos')
+		include ../layouts/video
+
 
 
 	include ../mixins/footer

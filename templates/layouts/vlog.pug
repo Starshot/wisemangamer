@@ -2,8 +2,8 @@
     .container-title
         h1.news-title Latest Gaming Videos
     .container-posts
-        if videos.length > 0
-            each video in videos
+
+            each video in videos.results
                 .container-img
                     a(href='/vlog/' + video._id )
                         img.blog-img(src=video._.image.src({width: 460, height: 306, crop: "fill"}), alt="Video")
@@ -11,7 +11,7 @@
                             .video-title #{video.title}
                             .video-date #{video._.publishedDate.format('MMMM DD, YYYY')}
                         a.link-post(href='/vlog/' + video._id ) Read More
-
+if(section == '/vlog')
             ul.pagination
 
                 // displays number of posts in database
@@ -25,6 +25,7 @@
                         |  posts
 
                     // display icons arrows for prevous  page and next page
+
                 if videos.totalPages > 1
                     ul.pagination
                         if videos.previous

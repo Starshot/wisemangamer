@@ -12,7 +12,7 @@
 					a.link-post(href='/blog/' + post._id ) Read More
 
 
-
+if(section == '/blog')
 		ul.pagination
 
 			// displays number of posts in database
@@ -26,6 +26,7 @@
 					|  posts
 
 				// display icons arrows for prevous  page and next page
+
 			if posts.totalPages > 1
 				ul.pagination
 					if posts.previous

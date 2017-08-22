@@ -8,7 +8,7 @@ exports = module.exports = function (req, res) {
     var locals = res.locals;
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = '/vlog';
+    locals.section = '/videos';
     locals.validationErrors = {};
     // Load the current post
     view.on('init', function (next) {
@@ -26,10 +26,10 @@ exports = module.exports = function (req, res) {
         Index.model.findOne()
             .exec(function(err, results) {
                 locals.data = results;
-                    var v = keystone.list('Video').model.findById(req.params.video);
-                    v.exec(function(err, result){
-                        locals.video = result;
-                        next(err);
+                var v = keystone.list('Video').model.findById(req.params.video);
+                v.exec(function(err, result){
+                    locals.video = result;
+                    next(err);
                 });
             });
     });
@@ -37,4 +37,5 @@ exports = module.exports = function (req, res) {
 
     view.render('index');
 };
+
 
