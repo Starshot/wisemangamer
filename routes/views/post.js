@@ -14,7 +14,7 @@ exports = module.exports = function (req, res) {
     view.on('init', function (next) {
         Post.paginate({
             page: req.query.page || 1,
-            perPage: 3,
+            perPage: 2,
             maxPages: 10
         })
             .where('state', 'published')

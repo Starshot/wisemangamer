@@ -14,7 +14,7 @@ exports = module.exports = function (req, res) {
     view.on('init', function (next) {
         Video.paginate({
             page: req.query.page || 1,
-            perPage: 2,
+            perPage: 10,
             maxPages: 10
         })
             .where('state', 'published')

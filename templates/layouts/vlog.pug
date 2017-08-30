@@ -2,40 +2,41 @@
     .container-title
         h1.news-title Latest Gaming Videos
     .container-posts
-
             each video in videos.results
                 .container-img
                     a(href='/vlog/' + video._id )
-                        img.blog-img(src=video._.image.src({width: 460, height: 306, crop: "fill"}), alt="Video")
+                        img.blog-img(src=video._.image.src({width: 460, height: 306, crop: "fill",transformation: [{effect: "gradient_fade,y_0.7,b_rgb:D4AF37"}]}), alt="Video")
                         .topText
-                            .video-title #{video.title}
-                            .video-date #{video._.publishedDate.format('MMMM DD, YYYY')}
+                            .post-title #{video.title}
+                            .post-date #{video._.publishedDate.format('MMMM DD, YYYY')}
                         a.link-post(href='/vlog/' + video._id ) Read More
 if(section == '/vlog')
-            ul.pagination
 
-                // displays number of posts in database
-                if videos.totalPages > 1
-                    .lead.text-muted Showing
-                        strong #{videos.first}
-                        |  to
-                        strong #{videos.last}
-                        |  of
-                        strong #{videos.total}
-                        |  posts
+                //
+                    ul.pagination
+
+                        // displays number of posts in database
+                        if videos.totalPages > 1
+                            .lead.text-muted Showing
+                                strong #{videos.first}
+                                |  to
+                                strong #{videos.last}
+                                |  of
+                                strong #{videos.total}
+                                |  posts
 
                     // display icons arrows for prevous  page and next page
 
                 if videos.totalPages > 1
                     ul.pagination
                         if videos.previous
-                            li: a(href='?page=' + videos.previous): span.glyphicon.glyphicon-chevron-left
+                            li: a(href='?page=' + videos.previous): span.material-icons arrow_back
                         else
-                            li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+                            li.disabled: a(href='?page=' + 1): span.material-icons arrow_back
 
                             // creates pages equal to the number of posts
                         each p, i in videos.pages
                             li(class=videos.currentPage === p ? 'active' : null)
                                 a(href='?page=' + (p === '...' ? (i ? videos.totalPages : 1) : p ))= p
                         if videos.next
-                            li: a(href='?page=' + videos.next): span.glyphicon.glyphicon-chevron-right
+                            li: a(href='?page=' + videos.next): span.material-icons arrow_forward
