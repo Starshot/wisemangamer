@@ -3,8 +3,7 @@
         img.blogpicture(src=post._.image.src({width: 672, height: 372, crop: "fill"}))
     .container-text
         h1.Bigheader #{post.title}
-        h4.Dateheader  #{post._.publishedDate.format('MMMM DD, YYYY')}
-        h4.Smallheader #{post.subTitle}
+        h4.Dateheader By #{post.subTitle}, #{post._.publishedDate.format('MMMM DD, YYYY')}
         p.text-align-left !{post.content.extended}
         a.btnstyle(href = '/blog') Back to Blog
 

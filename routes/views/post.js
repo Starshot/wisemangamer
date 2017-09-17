@@ -12,25 +12,22 @@ exports = module.exports = function (req, res) {
     locals.validationErrors = {};
     // Load the current post
     view.on('init', function (next) {
-        Post.paginate({
-            page: req.query.page || 1,
-            perPage: 2,
-            maxPages: 10
-        })
-            .where('state', 'published')
-            .sort('-publishedDate')
-            .exec(function(err, results) {
-                locals.posts = results;
-            });
 
         Index.model.findOne()
             .exec(function(err, results) {
                 locals.data = results;
-                var p = keystone.list('Post').model.findById(req.params.post);
-                p.exec(function(err, result){
-                    locals.post = result;
-                    next(err);
-                });
+                        Post.paginate({
+                            page: req.query.page || 1,
+                            perPage: 10,
+                            maxPages: 10
+                        })
+                            .where('state', 'published')
+                            .sort('-publishedDate')
+                            .exec(function(err, results) {
+                                locals.posts = results;
+                                next();
+                            });
+
             });
     });
 

@@ -1,11 +1,8 @@
 .container.backgroundcolor
-    #blogpost.container
-        img.blogpicture(src=video._.image.src({width: 672, height: 372, crop: "fill"}))
-    .container-text
-        h1.Bigheader #{video.title}
-        h4.Dateheader  #{video._.publishedDate.format('MMMM DD, YYYY')}
-        h4.Smallheader #{video.subTitle}
-        p.text-align-left !{video.content.extended}
-        a.btnstyle(href = '/') Back to collection
+    .container-video
+        h1.Bigvideo #{video.title}
+        h4.Datevideo  By #{video.subTitle}, #{video._.publishedDate.format('MMMM DD, YYYY')}
+        p.videocenter !{video.content.extended}
+        a.btnvideo(href = '/') Back to collection
 
 
