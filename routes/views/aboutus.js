@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var Index = keystone.list('Index');
-var Video = keystone.list('Video');
+var AboutUs = keystone.list('AboutUs');
 
 exports = module.exports = function (req, res) {
 
@@ -8,23 +8,21 @@ exports = module.exports = function (req, res) {
     var locals = res.locals;
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = '/vlog';
+    locals.section = '/aboutus';
     locals.validationErrors = {};
     // Load the current post
     view.on('init', function (next) {
-        Video.paginate({
-            page: req.query.page || 1,
-            perPage: 10,
-            maxPages: 10
-        })
-            .where('state', 'published')
-            .sort('-publishedDate')
+        Index.model.findOne()
             .exec(function(err, results) {
-                locals.videos = results;
-                next(err);
+                locals.data = results;
+                console.log('does this work ');
+                AboutUs.model.findOne()
+                    .exec(function(err, results){
+                        console.log(results);
+                        locals.aboutus = results;
+                        next(err);
+                    });
             });
-
-     
     });
 
 
