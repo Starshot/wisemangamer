@@ -12,16 +12,11 @@ exports = module.exports = function (req, res) {
     locals.validationErrors = {};
     // Load the current post
     view.on('init', function (next) {
-        Index.model.findOne()
-            .exec(function(err, results) {
-                locals.data = results;
-                console.log('does this work ');
-                AboutUs.model.findOne()
-                    .exec(function(err, results){
-                        console.log(results);
-                        locals.aboutus = results;
-                        next(err);
-                    });
+        AboutUs.model.findOne()
+            .exec(function(err, results){
+                console.log(results);
+                locals.aboutus = results;
+                next(err);
             });
     });
 

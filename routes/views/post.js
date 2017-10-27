@@ -12,22 +12,16 @@ exports = module.exports = function (req, res) {
     locals.validationErrors = {};
     // Load the current post
     view.on('init', function (next) {
-
-        Index.model.findOne()
+        Post.paginate({
+            page: req.query.page || 1,
+            perPage: 10,
+            maxPages: 10
+        })
+            .where('state', 'published')
+            .sort('-publishedDate')
             .exec(function(err, results) {
-                locals.data = results;
-                        Post.paginate({
-                            page: req.query.page || 1,
-                            perPage: 10,
-                            maxPages: 10
-                        })
-                            .where('state', 'published')
-                            .sort('-publishedDate')
-                            .exec(function(err, results) {
-                                locals.posts = results;
-                                next();
-                            });
-
+                locals.posts = results;
+                next();
             });
     });
 

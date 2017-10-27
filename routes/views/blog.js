@@ -12,18 +12,14 @@ exports = module.exports = function (req, res) {
 	locals.validationErrors = {};
 	// Load the current post
 	view.on('init', function (next) {
-		Index.model.findOne()
-			.exec(function(err, results) {
-				locals.data = results;
-				console.log('does this blog work ');
-						var p = keystone.list('Post').model.findById(req.params.post);
-						p.exec(function(err, result){
-							locals.post = result;
-							next(err);
-						});
+		locals.data = results;
+			var p = keystone.list('Post').model.findById(req.params.post);
+			p.exec(function(err, result){
+				locals.post = result;
+				next(err);
 			});
+
 	});
-
-
+	
 	view.render('index');
 };
