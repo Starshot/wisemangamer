@@ -12,17 +12,12 @@ exports = module.exports = function (req, res) {
     locals.validationErrors = {};
     // Load the current post
     view.on('init', function (next) {
-        Video.paginate({
-            page: req.query.page || 1,
-            perPage: 10,
-            maxPages: 10
-        })
-            .where('state', 'published')
-            .sort('-publishedDate')
-            .exec(function(err, results) {
-                locals.videos = results;
-            });
-        next();
+        var v = keystone.list('Video').model.findById(req.params.video);
+        v.exec(function(err, result){
+            locals.video = result;
+            next(err);
+        });
+
     });
 
 
