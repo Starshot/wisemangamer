@@ -8,13 +8,12 @@ exports = module.exports = function (req, res) {
     var locals = res.locals;
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = '/aboutus';
+    locals.section = '/aboutme';
     locals.validationErrors = {};
     // Load the current post
     view.on('init', function (next) {
         AboutUs.model.findOne()
             .exec(function(err, results){
-                console.log(results);
                 locals.aboutus = results;
                 next(err);
             });

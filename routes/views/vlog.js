@@ -21,10 +21,9 @@ exports = module.exports = function (req, res) {
             .sort('-publishedDate')
             .exec(function(err, results) {
                 locals.videos = results;
-
+                next();
             });
-        next();
-
+        
     });
 
 
