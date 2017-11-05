@@ -21,7 +21,7 @@ exports = module.exports = function (app) {
 	app.get('/blog/:post', routes.views.blog);
 	app.get('/vlog', routes.views.vlog);
 	app.get('/vlog/:video', routes.views.video);
-	app.get('/aboutme', routes.views.aboutus);
+	app.get('/aboutus', routes.views.aboutus);
 	app.get('/contact', routes.views.contact);
 	app.get('/privacy', routes.views.protection);
 	
