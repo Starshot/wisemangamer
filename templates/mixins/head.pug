@@ -11,13 +11,14 @@ head
     link(href="/styles/css/shared.css", rel="stylesheet")
     script(defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    
     script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
-        script.
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-1050392827355534",
-                enable_page_level_ads: true
-            });
-
+    script.
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1050392827355534",
+            enable_page_level_ads: true
+        });
+    | (adsbygoogle = window.adsbygoogle || []).push({});
     //- This file provides the default styling for the KeystoneJS Content Editor
     if user && user.canAccessKeystone
         link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
