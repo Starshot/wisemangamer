@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed18ef46-662b-4127-a862-30cd8c8725d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/mixins/head.pug" afterPath="$PROJECT_DIR$/templates/mixins/head.pug" />
-    </list>
+    <list default="true" id="ed18ef46-662b-4127-a862-30cd8c8725d5" name="Default" comment="" />
     <ignored path="wisemangamer.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -443,12 +441,12 @@
       <workItem from="1492372894542" duration="146464000" />
       <workItem from="1501631583765" duration="11553000" />
       <workItem from="1502055913545" duration="498000" />
-      <workItem from="1502218444940" duration="96015000" />
+      <workItem from="1502218444940" duration="96925000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254530000" />
+    <option name="totallyTimeSpent" value="255440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="75" width="1440" height="873" extended-state="0" />
